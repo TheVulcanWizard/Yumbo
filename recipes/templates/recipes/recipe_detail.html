@@ -1,0 +1,26 @@
+{% extends "recipes/base.html" %}
+{% block content %}
+    <div class="container rounded my-2" style="background-color: white;">
+        <a href="{% url 'delete-recipe' recipe.pk %}" class="float-md-right btn btn-danger mt-2 mx-1">Delete Recipe</a>
+        <a href="{% url 'edit-recipe' recipe.pk %}" class="float-md-right btn btn-outline-info mt-2 mx-1">Edit Recipe</a>
+        <h1>{{ recipe.recipe_name }}</h1>
+        <hr>
+        <img src="{{ recipe.image.url }}" alt="" class="fit-image-profile col-md-6 float-md-right mb-3 ml-md-3 mr-5">
+        <p>
+            Prep time: {{ recipe.prep_time }}
+        </p>
+        <h6>Ingredients:</h6>
+        <p>
+            <ul class="border">
+                {% for ingredient in ingredients %}
+                    <li>{{ ingredient.ingredient_name }}, {{ ingredient.quantity.normalize }} {{ ingredient.units }}</li>
+                {% endfor %}
+            </ul>
+        </p>
+        <ol>
+            {% for direction in directions %}
+                <li>{{ direction.text }}</li>
+            {% endfor %}
+        </ol>
+    </div>
+{% endblock content %}

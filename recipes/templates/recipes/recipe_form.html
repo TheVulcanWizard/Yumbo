@@ -1,0 +1,107 @@
+{% extends 'recipes/base.html' %}
+{% block content %}
+    <div class="container rounded my-2" style="background-color: white;">
+        {% if recipe %}
+            <h1>Update Recipe - {{ recipe.recipe_name }}</h1>
+        {% else %}
+            <h1>Create New Recipe</h1>
+        {% endif %}
+        <hr>
+        <form enctype="multipart/form-data" method="POST">
+            {% csrf_token %}
+            <h3>Recipe Details</h3>
+            <div class="fieldWrapper">
+                {{ recipe_form.recipe_name.errors }}
+                <label for="id_recipe_name">Recipe Name:</label>
+                {{ recipe_form.recipe_name }}
+            </div>
+            <div class="fieldWrapper">
+                {{ recipe_form.prep_time.errors }}
+                <label for="id_recipe_name">Prep Time:</label>
+                {{ recipe_form.prep_time }}
+            </div>
+            <div class="fieldWrapper">
+                {{ recipe_form.image.errors }}
+                <label for="id_recipe_name">Image:</label>
+                {{ recipe_form.image }}
+            </div>
+            <hr>
+            <h3>Ingredients</h3>
+            {{ ingredient_forms.management_form }}
+            <div id="ingredients-form-container">
+                {% for ingredient_form in ingredient_forms %}
+                <div id="ingredient-{{ forloop.counter0 }}">
+                    {{ ingredient_form.id }}
+                    {{ ingredient_form.errors }}
+                    {{ ingredient_form.position }}
+                    <label for="ingredient_form.ingredient_name">Ingredient Name:</label>
+                    {{ ingredient_form.ingredient_name }}
+                    <label for="ingredient_form.quantity">Quantity:</label>
+                    {{ ingredient_form.quantity }} {{ ingredient_form.units }}
+                    {{ ingredient_form.DELETE }}
+                    <a href="#" id="delete-ingredient-button-{{ forloop.counter0 }}" class="btn btn-outline-danger">Remove Ingredient</a>
+                    <script type="text/javascript">deleteModelForm("ingredient", "{{ forloop.counter0 }}")</script>
+                </div>
+                {% endfor %}
+            </div>
+            <a href="#" id="add-ingredient-button" class="btn btn-outline-info add-ingredient">Add Ingredient</a>
+            <template id="new-ingredient-form-template">
+                <div id="new-ingredient-form">
+                    {{ ingredient_form.id }}
+                    {{ ingredient_form.errors }}
+                    {{ ingredient_forms.empty_form.position }}
+                    <label for="ingredient_form.ingredient_name">Ingredient Name:</label>
+                    {{ ingredient_forms.empty_form.ingredient_name }}
+                    <label for="ingredient_form.quantity">Quantity:</label>
+                    {{ ingredient_forms.empty_form.quantity }} {{ ingredient_forms.empty_form.units }}
+                    <input type="checkbox" name="ingredient_set-__prefix__-DELETE" id="id_ingredient_set-__prefix__-DELETE">
+                    <a href="#" id="delete-ingredient-button-__prefix__" class="btn btn-outline-danger">Remove Ingredient</a>
+                    <script type="text/javascript">deleteModelForm("ingredient", "__prefix__")</script>
+                </div>
+            </template>
+            <script type="text/javascript">newModelForm("ingredient")</script>
+            <hr>
+            <h3>Directions</h3>
+            {{ direction_forms.management_form }}
+            <div id="directions-form-container">
+                {% for direction_form in direction_forms %}
+                <div id="direction-{{ forloop.counter0 }}">
+                    {{ direction_form.id }}
+                    {{ direction_form.errors }}
+                    {{ direction_form.position }}
+                    <div class="fieldWrapper">
+                        <label for="direction_form.text">Text:</label>
+                        {{ direction_form.text }}
+                        {{ direction_form.DELETE }}
+                        <a href="#" id="delete-direction-button-{{ forloop.counter0 }}" class="btn btn-outline-danger">Remove Direction</a>
+                        <script type="text/javascript">deleteModelForm("direction", "{{ forloop.counter0 }}")</script>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+            <a href="#" id="add-direction-button" class="btn btn-outline-info add-direction">Add Direction</a>
+            <template id="new-direction-form-template">
+                <div id="new-direction-form">
+                    {{ direction_forms.empty_form.id }}
+                    {{ direction_forms.empty_form.position }}
+                    <div class="fieldWrapper">
+                        <label for="direction_form.text">Text:</label>
+                        {{ direction_forms.empty_form.text }}
+                        <input type="checkbox" name="direction_set-__prefix__-DELETE" id="id_direction_set-__prefix__-DELETE">
+                        <a href="#" id="delete-direction-button-__prefix__" class="btn btn-outline-danger">Remove Direction</a>
+                        <script type="text/javascript">deleteModelForm("direction", "__prefix__")</script>
+                    </div>
+                </div>
+            </template>
+            <script type="text/javascript">newModelForm("direction")</script>
+            <hr>
+            {% if recipe %}
+                <button class="btn btn-info my-1">Update Recipe</button>
+                <a href="{% url 'recipe-detail' recipe.pk %}" class="btn btn-outline-danger my-1">Cancel</a>
+            {% else %}
+                <button class="btn btn-info my-1">Create Recipe</button>
+                <a href="javascript:history.back()" class="btn btn-outline-danger my-1">Cancel</a>
+            {% endif %}
+        </form>
+    </div>
+{% endblock content %}

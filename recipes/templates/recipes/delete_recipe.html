@@ -1,0 +1,12 @@
+{% extends 'recipes/base.html' %}
+{% block content %}
+    <div class="container rounded my-2" style="background-color: white;">
+        <h1>Are you sure you want to delete {{ recipe.recipe_name}}?</h1>
+        <h4>If you change your mind later, you will have to rebuild it from scratch!</h4>
+        <form method="POST">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-danger">Yes, Delete This Recipe</button>
+            <a href="{% url 'recipe-detail' recipe.pk %}" class="btn btn-outline-info">No, Take Me Back!</a>
+        </form>
+    </div>
+{% endblock content %}

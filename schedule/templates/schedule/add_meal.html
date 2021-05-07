@@ -1,0 +1,17 @@
+{% extends 'recipes/base.html' %}
+{% block content %}
+    <div class="container rounded my-2" style="background-color: white;">
+        <h1>Add Meal</h1>
+        <hr>
+        <form enctype="multipart/form-data" method="POST">
+            {% csrf_token %}
+            <h3>Meal</h3>
+            <div class="fieldWrapper">
+                {{ meal_form.recipe.errors }}
+                <label for="id_recipe_name">Recipe Name:</label>
+                {{ meal_form.meal_recipe }}
+            </div>
+            <button class="btn btn-info my-1">Create Recipe</button>
+        </form>
+    </div>
+{% endblock content %}

@@ -1,0 +1,111 @@
+.recipe-card {
+    color: black;
+    width: 18rem;
+    box-shadow: -5px 5px 5px #888888;
+    top: 0px;
+    transition: 150ms ease-in-out;
+}
+
+#new-recipe-card {
+    width: 18rem;
+    background-color: transparent;
+}
+
+.recipe-card:hover {
+    position: relative;
+    top: -5px;
+    box-shadow: -7px 8px 6px #888888;
+}
+
+.card-img-top {
+    width: 100%;
+    height: 15vw;
+    object-fit: cover;
+}
+
+.fit-image-profile {
+    width: 60%;
+    object-fit: cover;
+    height: 400px
+}
+
+.calendar-card {
+    color: black;
+    width: 13vw; 
+    height: 15rem; 
+    flex-shrink: 0; 
+    margin-left: 0.5vw; 
+    margin-right: 0.5vw;
+}
+
+.container {
+    overflow: hidden
+}
+
+.border {
+    max-width: 35%;
+}
+
+.fieldWrapper {
+    margin-bottom: 0.5em;
+}
+
+#ingredients-form-container div[id^='ingredient-'] {
+    margin-bottom: 0.5em;
+}
+
+input[id$="-DELETE"] {
+    display: none;
+}
+
+.resize-animation-stopper * {
+    transition: none !important;
+    transition-duration: 0s !important;
+}
+
+.hidden {
+    opacity: 0;
+    pointer-events: none !important;
+}
+
+.visible {
+    opacity: 0.7;
+}
+
+.carousel-button {
+    position: fixed;
+    outline: none;
+    pointer-events: all;
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    border: none;
+    display: inline-block;
+    overflow: hidden;
+    vertical-align: center;
+    box-shadow: 0 0 8px #888888;
+    transition: width 100ms ease-in-out, height 100ms ease-in-out, opacity 400ms ease-in-out;
+}
+
+.carousel-button:focus {
+    outline: 0;
+}
+
+.carousel-button:hover {
+    width: 3.2rem;
+    height: 3.2rem;
+}
+
+.carousel-button:active {
+    width: 2.8rem;
+    height: 2.8rem;
+    filter: brightness(85%);
+}
+
+.carousel-button.carousel-left {
+    left: 1%;
+}
+
+.carousel-button.carousel-right {
+    right: 1%;
+}

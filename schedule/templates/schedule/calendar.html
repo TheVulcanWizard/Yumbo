@@ -1,0 +1,143 @@
+{% extends 'recipes/base.html' %}
+{% block content %}
+    <h1 class="mt-1" style="text-align: center; font-size: 48pt;">This week in eating...</h1>
+    <div class="carousel-relative-wrapper" style="position: relative; height: 16rem; width: 98vw; margin: 0 auto;">
+        <div class="carousel-wrapper" style="position: absolute; height: 16rem; width: 98vw; overflow: hidden; margin: 0 auto;">
+            <div class="carousel" data-target="carousel" style="display: flex; width: 98vw; position: absolute; transition: all 1s ease; transform: translateX(-294vw);">
+                {% for week in weeks %}
+                    {% for day in week %}
+                        {% if day < today %}
+                            <a href="{% url 'add-meal' day.isocalendar.0 day.isocalendar.1 day.isocalendar.2 %}" style="text-decoration: none; color: grey;">             
+                                <div class="card calendar-card" data-target="card" style="color: grey;">
+                                    <div class="card-header" style="color: grey;">
+                                        {{ day|date:"l" }}
+                                    </div>
+                                    <div class="card-body">
+                                        <h2 class=card-title style="background-color: none; border-radius: 50%; height: 3rem; width: 3rem; line-height: 2.8rem; text-align: center;">{{ day|date:"d" }}</h2>
+                                        <ul>
+                                            {% for meal in meals %}
+                                                {% if meal.date.date == day.date %}
+                                                    <a href="{% url 'recipe-detail' meal.meal_recipe.pk %}" style="text-decoration: none; color: grey;">
+                                                        <li>{{ meal.meal_recipe }}</li>
+                                                    </a>
+                                                {% endif %}
+                                            {% endfor %}
+                                        </ul>
+                                    </div>
+                                </div>
+                            </a>
+                        {% elif day == today %}
+                            <a href="{% url 'add-meal' day.isocalendar.0 day.isocalendar.1 day.isocalendar.2 %}" style="text-decoration: none; color: black;">             
+                                <div class="card calendar-card" data-target="card" style="color: black;">
+                                    <div class="card-header" style="color: black;">
+                                        {{ day|date:"l" }}
+                                    </div>
+                                    <div class="card-body">
+                                        <h2 class=card-title style="background-color: pink; border-radius: 50%; height: 3rem; width: 3rem; line-height: 2.8rem; text-align: center;">{{ day|date:"d" }}</h2>
+                                        <ul>
+                                            {% for meal in meals %}
+                                                {% if meal.date.date == day.date %}
+                                                    <a href="{% url 'recipe-detail' meal.meal_recipe.pk %}" style="text-decoration: none; color: black;">
+                                                        <li>{{ meal.meal_recipe }}</li>
+                                                    </a>
+                                                {% endif %}
+                                            {% endfor %}
+                                        </ul>
+                                    </div>
+                                </div>
+                            </a>
+                        {% else %}
+                            <a href="{% url 'add-meal' day.isocalendar.0 day.isocalendar.1 day.isocalendar.2 %}" style="text-decoration: none; color: black;">             
+                                <div class="card calendar-card" data-target="card">
+                                    <div class="card-header">
+                                        {{ day|date:"l" }}
+                                    </div>
+                                    <div class="card-body">
+                                        <h2 class=card-title>{{ day|date:"d" }}</h2>
+                                        <ul>
+                                            {% for meal in meals %}
+                                                {% if meal.date.date == day.date %}
+                                                    <a href="{% url 'recipe-detail' meal.meal_recipe.pk %}" style="text-decoration: none;">
+                                                        <li>{{ meal.meal_recipe }}</li>
+                                                    </a>
+                                                {% endif %}
+                                            {% endfor %}
+                                        </ul>
+                                    </div>
+                                </div>
+                            </a>
+                        {% endif %}
+                    {% endfor %}
+                {% endfor %}
+            </div>
+            <div class="button-wrapper" style="width: 100%; position: absolute; height: 100%; display: flex; justify-content: space-between; align-items: center; pointer-events: none;">
+                <button class="carousel-button carousel-left visible" data-action="slideLeft">
+                    <svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-chevron-compact-left" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" d="M9.224 1.553a.5.5 0 0 1 .223.67L6.56 8l2.888 5.776a.5.5 0 1 1-.894.448l-3-6a.5.5 0 0 1 0-.448l3-6a.5.5 0 0 1 .67-.223z"/>
+                    </svg>
+                </button>
+                <button class="carousel-button carousel-right visible" data-action="slideRight">
+                    <svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-chevron-compact-right" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" d="M6.776 1.553a.5.5 0 0 1 .671.223l3 6a.5.5 0 0 1 0 .448l-3 6a.5.5 0 1 1-.894-.448L9.44 8 6.553 2.224a.5.5 0 0 1 .223-.671z"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </div>
+    <script>
+        const carousel = document.querySelector("[data-target='carousel'")
+        const card = document.querySelector("[data-target='card'")
+        const leftButton = document.querySelector("[data-action='slideLeft']")
+        const rightButton = document.querySelector("[data-action='slideRight']")
+        
+        const viewportWidth = window.innerWidth
+        const carouselWidth = 98
+
+        let offset = -294
+        const maxOffset = -carouselWidth * 7
+
+        leftButton.addEventListener("click", () => {
+            console.log("click left", offset)
+            if (offset !== 0) {
+                offset += carouselWidth
+                carousel.style.transform = `translateX(${offset}vw)`
+                if (offset == 0) {
+                    leftButton.classList.remove('visible')
+                    leftButton.classList.add('hidden')
+                } else if (offset == maxOffset+carouselWidth) {
+                    rightButton.classList.add('visible')
+                    rightButton.classList.remove('hidden')
+                }
+            }
+        })
+
+        rightButton.addEventListener("click", () => {
+            console.log("click right", offset)
+            if (offset !== maxOffset) {
+                offset -= carouselWidth
+                carousel.style.transform = `translateX(${offset}vw)`
+                if (offset == maxOffset) {
+                    rightButton.classList.remove('visible')
+                    rightButton.classList.add('hidden')
+                } else if (offset == -carouselWidth) {
+                    leftButton.classList.add('visible')
+                    leftButton.classList.remove('hidden')
+                }    
+            }
+        })
+
+        let resizeTimer;
+        var pauseTransition = () => {
+            console.log("resize detected!")
+            document.body.classList.add("resize-animation-stopper")
+            console.log(carousel.style)
+            clearTimeout(resizeTimer)
+            resizeTimer = setTimeout(() => {
+                document.body.classList.remove("resize-animation-stopper")
+            }, 200)
+        }
+
+        window.addEventListener('resize', pauseTransition)
+        window.onresize = pauseTransition
+    </script>
+{% endblock content %}

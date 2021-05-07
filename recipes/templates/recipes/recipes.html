@@ -1,0 +1,37 @@
+{% extends "recipes/base.html" %}
+{% block content %}
+    <div class="container">
+        <div class="row row-cols-auto mt-3">
+            {% for recipe in recipes %}
+                <a href="{% url 'recipe-detail' recipe.pk %}" style="text-decoration: none;">
+                    <div class="col">
+                        <div class="card mb-3 recipe-card">
+                            <img src="{{ recipe.image.url }}" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <h5 class="card-title">{{recipe.recipe_name}}</h5>
+                                <p class="card-text">{{ recipe.prep_time }}</p>
+                            <!--  <a href="{% url 'recipe-detail' recipe.pk %}" class="btn btn-primary">Go somewhere</a> -->
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            {% endfor %}
+            <a href="{% url 'create-recipe' %}" style="text-decoration: none;">
+                <div class="col">
+                    <div class="card mb-3 mt-2 recipe-card" id="new-recipe-card">
+                        <div class="card-img-top">
+                            <svg width="60%" height="60%" viewBox="0 0 16 16" class="bi bi-plus-circle" style="margin-left: 20%; margin-top: 20%; margin-bottom: 20%;" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" d="M8 3.5a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-.5.5H4a.5.5 0 0 1 0-1h3.5V4a.5.5 0 0 1 .5-.5z"/>
+                                <path fill-rule="evenodd" d="M7.5 8a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0 1H8.5V12a.5.5 0 0 1-1 0V8z"/>
+                                <path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                            </svg>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title" style="text-align: center; font-size: 2em;">Add New Recipe</h5>
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </div>
+{% endblock content %}
