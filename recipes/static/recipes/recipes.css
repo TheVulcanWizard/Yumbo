@@ -1,5 +1,14 @@
+h1, h2, h3 {
+    font-family: "Cookie"
+}
+
+body {
+    font-family: "Raleway"
+}
+
 .recipe-card {
     color: black;
+    background-color: #fefff6;
     width: 18rem;
     box-shadow: -5px 5px 5px #888888;
     top: 0px;
@@ -8,7 +17,6 @@
 
 #new-recipe-card {
     width: 18rem;
-    background-color: transparent;
 }
 
 .recipe-card:hover {
@@ -39,7 +47,7 @@
 }
 
 .container {
-    overflow: hidden
+    overflow: hidden;
 }
 
 .border {

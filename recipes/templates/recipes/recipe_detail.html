@@ -1,6 +1,6 @@
 {% extends "recipes/base.html" %}
 {% block content %}
-    <div class="container rounded my-2" style="background-color: white;">
+    <div class="container rounded my-3" style="background-color: #fefff6; border: 2px solid black;">
         <a href="{% url 'delete-recipe' recipe.pk %}" class="float-md-right btn btn-danger mt-2 mx-1">Delete Recipe</a>
         <a href="{% url 'edit-recipe' recipe.pk %}" class="float-md-right btn btn-outline-info mt-2 mx-1">Edit Recipe</a>
         <h1>{{ recipe.recipe_name }}</h1>
