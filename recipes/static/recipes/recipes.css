@@ -1,14 +1,36 @@
-h1, h2, h3 {
-    font-family: "Cookie"
+:root {
+    --color-main: hsl(12, 62%, 68%);
+    --color-main-dark: hsl(12, 62%, 60%);
+    --color-secondary: hsl(171, 30%, 83%);
+    --color-secondary-dark: hsl(171, 30%, 75%);
+
+    --color-bg: #F4F4E1;
+    --color-bg-light: #FEFFF6;
+
+}
+
+h1, h2, h3, .navbar-brand {
+    font-family: "Cookie";
+    line-height: 1;
 }
 
 body {
-    font-family: "Raleway"
+    font-family: "Raleway";
+    background-color: var(--color-bg);
+}
+
+.navbar {
+    background-color: var(--color-main);
+}
+
+.nav-link:hover, .nav-link:focus {
+    text-decoration: underline var(--color-secondary);
+    text-decoration-thickness: 2px;
 }
 
 .recipe-card {
     color: black;
-    background-color: #fefff6;
+    background-color: var(--color-bg-light);
     width: 18rem;
     box-shadow: -5px 5px 5px #888888;
     top: 0px;

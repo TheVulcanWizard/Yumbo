@@ -17,27 +17,32 @@
             <title>Yumbo</title>
         {% endif %}
     </head>
-    <body style="background-color: #f4f4e1">
+    <body>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-        <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #e08e79;">
-            <div class="container-fluid">
-                <a class="navbar-brand" href="{% url 'yumbo-home' %}"><h3>Yumbo</h3></a>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav mr-auto mb-2 mb-lg-0">
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="{% url 'recipes' %}">Recipes</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link active" href="{% url 'calendar' %}">Calendar</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link active" href="#">Lists</a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    {% if user.is_authenticated %}
-                    <ul class="navbar-nav ml-auto mb-2 mb-lg-0">
+        <nav class="navbar navbar-expand-sm navbar-dark sticky-top">
+            <a class="navbar-brand ml-3" href="{% url 'yumbo-home' %}"><h1>Yumbo</h1></a>
+
+            <button class="navbar-toggler mr-3 ml-auto" type="button" data-toggle="collapse" data-target="#yumboNavbar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse ml-3 ml-sm-0 mb-0" id="yumboNavbar">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="{% url 'recipes' %}">Recipes</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="{% url 'calendar' %}">Calendar</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#">Lists</a>
+                    </li>
+                </ul>
+
+
+                <!-- We can probably just have one ul tag and have the if statement on the li tag groups -->
+                {% if user.is_authenticated %}
+                    <ul class="navbar-nav mr-3 ml-auto">
                         <li class="nav-item">
                             <a class="nav-link active" href="{% url 'profile' %}">Profile</a>
                         </li>
@@ -45,16 +50,16 @@
                             <a class="nav-link active" href="{% url 'logout' %}">Log Out</a>
                         </li>
                     </ul>
-                    {% else %}
-                        <ul class="navbar-nav ml-auto mb-2 mb-lg-0">
-                            <li class="nav-item">
-                                <a class="nav-link active" href="{% url 'register' %}">Register</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link active" href="{% url 'login' %}">Log In</a>
-                            </li>
-                        </ul>
-                    {% endif %}
+                {% else %}
+                    <ul class="navbar-nav mr-3 ml-auto">
+                        <li class="nav-item">
+                            <a class="nav-link active" href="{% url 'register' %}">Register</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="{% url 'login' %}">Log In</a>
+                        </li>
+                    </ul>
+                {% endif %}
                 </div>        
             </div> 
         </nav>
