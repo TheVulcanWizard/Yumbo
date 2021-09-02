@@ -66,9 +66,9 @@ def create_recipe(request):
     else:
         recipe_form = RecipeForm()
         ingredient_formset = inlineformset_factory(Recipe, Ingredient, form=IngredientForm, extra=1)
-        ingredient_forms = ingredient_formset()
+        ingredient_forms = ingredient_formset(initial=[{'position':0}])
         direction_formset = inlineformset_factory(Recipe, Direction, form=DirectionForm, extra=1)
-        direction_forms = direction_formset()
+        direction_forms = direction_formset(initial=[{'position':0}])
 
     context = {
         'recipe_form': recipe_form,
