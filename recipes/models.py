@@ -1,12 +1,20 @@
 from django.db import models
 from django.utils import timezone
 from django.contrib.auth.models import User
+from random import choice
+from os.path import join, isfile
+from os import listdir
+
+def random_img():
+    dir_path = 'media/recipe_pics/defaults'
+    files = [content for content in listdir(dir_path) if isfile(join(dir_path, content))]
+    return join('recipe_pics/defaults', choice(files))
 
 class Recipe(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     recipe_name = models.CharField("Recipe Name", max_length=200)
     prep_time = models.CharField("Prep Time", max_length=30)
-    image = models.ImageField(default='recipe_pics/default.jpg', upload_to='recipe_pics')
+    image = models.ImageField(default=random_img, upload_to='recipe_pics')
 
     def __str__(self):
         return self.recipe_name
