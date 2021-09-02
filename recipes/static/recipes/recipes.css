@@ -32,6 +32,10 @@ body {
     text-decoration-thickness: 2px;
 }
 
+.container-skinny {
+    max-width: 720px;
+}
+
 .recipe-card {
     color: black;
     background-color: var(--color-bg-light);
@@ -54,9 +58,9 @@ body {
 }
 
 .fit-image-profile {
-    width: 60%;
+    width: 100%;
     object-fit: cover;
-    height: 400px
+    height: 250px
 }
 
 .calendar-card {
@@ -107,8 +111,8 @@ body {
     overflow: hidden;
 }
 
-.border {
-    max-width: 35%;
+.strikethrough:checked + .ingredient-item {
+    text-decoration: line-through;
 }
 
 .fieldWrapper {
