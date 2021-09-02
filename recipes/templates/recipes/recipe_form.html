@@ -1,11 +1,13 @@
 {% extends 'recipes/base.html' %}
 {% block content %}
     <div class="container rounded my-2" style="background-color: white;">
-        {% if recipe %}
-            <h1>Update Recipe - {{ recipe.recipe_name }}</h1>
-        {% else %}
-            <h1>Create New Recipe</h1>
-        {% endif %}
+        <div class="row mt-3">
+            {% if recipe %}
+                <h1 class="recipe-header">Update Recipe - {{ recipe.recipe_name }}</h1>
+            {% else %}
+                <h1 class="recipe-header">Create New Recipe</h1>
+            {% endif %}
+        </div>
         <hr>
         <form enctype="multipart/form-data" method="POST">
             {% csrf_token %}
