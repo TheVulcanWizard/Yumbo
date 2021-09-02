@@ -1,23 +1,25 @@
 {% extends "recipes/base.html" %}
 {% block content %}
     <div class="container rounded my-3">
-        <div class="row row-cols-auto mt-3">
+        <div class="row mt-3">
             {% for recipe in recipes %}
-                <a href="{% url 'recipe-detail' recipe.pk %}" style="text-decoration: none;">
-                    <div class="col">
-                        <div class="card mb-3 recipe-card">
-                            <img src="{{ recipe.image.url }}" class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title">{{recipe.recipe_name}}</h5>
-                                <p class="card-text">{{ recipe.prep_time }}</p>
-                            <!--  <a href="{% url 'recipe-detail' recipe.pk %}" class="btn btn-primary">Go somewhere</a> -->
+                <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                    <a href="{% url 'recipe-detail' recipe.pk %}" style="text-decoration: none;">
+                        <div class="col">
+                            <div class="card mb-3 recipe-card">
+                                <img src="{{ recipe.image.url }}" class="card-img-top" alt="...">
+                                <div class="card-body">
+                                    <h5 class="card-title">{{recipe.recipe_name}}</h5>
+                                    <p class="card-text">{{ recipe.prep_time }}</p>
+                                <!--  <a href="{% url 'recipe-detail' recipe.pk %}" class="btn btn-primary">Go somewhere</a> -->
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </a>
+                    </a>
+                </div>
             {% endfor %}
-            <a href="{% url 'create-recipe' %}" style="text-decoration: none;">
-                <div class="col">
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                <a href="{% url 'create-recipe' %}" style="text-decoration: none;">
                     <div class="card mb-3 mt-2 recipe-card" id="new-recipe-card">
                         <div class="card-img-top">
                             <svg width="60%" height="60%" viewBox="0 0 16 16" class="bi bi-plus-circle" style="margin-left: 20%; margin-top: 20%; margin-bottom: 20%;" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -27,11 +29,11 @@
                             </svg>
                         </div>
                         <div class="card-body">
-                            <h5 class="card-title" style="text-align: center; font-size: 2em;">Add New Recipe</h5>
+                            <h5 class="card-title" style="text-align: center; font-size: 1.8em;">Add New Recipe</h5>
                         </div>
                     </div>
-                </div>
-            </a>
+                </a>
+            </div>
         </div>
     </div>
     {% endblock content %}
