@@ -3,10 +3,14 @@
     --color-main-dark: hsl(12, 62%, 60%);
     --color-secondary: hsl(171, 30%, 83%);
     --color-secondary-dark: hsl(171, 30%, 75%);
+    --color-secondary-darker: hsl(171, 30%, 67%);
 
     --color-bg: #F4F4E1;
     --color-bg-light: #FEFFF6;
 
+    --color-danger: hsl(352, 86%, 81%);
+    --color-danger-dark: hsl(352, 86%, 73%);
+    --color-danger-darker: hsl(352, 86%, 65%);
 }
 
 h1, h2, h3, .navbar-brand {
@@ -67,6 +71,39 @@ body {
     flex-shrink: 0; 
     margin-left: 0.5vw; 
     margin-right: 0.5vw;
+}
+
+.recipe-header {
+    font-size: 46pt;
+}
+
+.custom-btn {
+    color: white;
+    transition: 0.2s ease-in-out;
+}   
+
+.edit-btn {
+    background-color: var(--color-secondary);
+}
+
+.edit-btn:hover {
+    background-color: var(--color-secondary-dark);
+}
+
+.edit-btn:focus {
+    box-shadow: 0 0 0 .2rem var(--color-secondary-dark);
+}
+
+.delete-btn {
+    background-color: var(--color-danger);
+}
+
+.delete-btn:hover {
+    background-color: var(--color-danger-dark);
+}
+
+.delete-btn:focus {
+    box-shadow: 0 0 0 .2rem var(--color-danger-dark);
 }
 
 .container {

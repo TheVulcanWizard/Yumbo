@@ -1,9 +1,17 @@
 {% extends "recipes/base.html" %}
 {% block content %}
     <div class="container rounded my-3" style="background-color: #fefff6; border: 2px solid black;">
-        <a href="{% url 'delete-recipe' recipe.pk %}" class="float-md-right btn btn-danger mt-2 mx-1">Delete Recipe</a>
-        <a href="{% url 'edit-recipe' recipe.pk %}" class="float-md-right btn btn-outline-info mt-2 mx-1">Edit Recipe</a>
-        <h1>{{ recipe.recipe_name }}</h1>
+        <div class="row mt-3">
+            <div class="col">
+                <h1 class="recipe-header">{{ recipe.recipe_name }}</h1>
+            </div>
+
+            <div class="col-md-6 offset-md-0">
+                <a href="{% url 'delete-recipe' recipe.pk %}" class="btn btn-lg custom-btn delete-btn float-md-right ml-md-1 mt-2">Delete Recipe</a>
+                <a href="{% url 'edit-recipe' recipe.pk %}" class="btn btn-lg custom-btn edit-btn float-md-right mt-2">Edit Recipe</a>
+            </div>
+
+        </div>
         <hr>
         <img src="{{ recipe.image.url }}" alt="" class="fit-image-profile col-md-6 float-md-right mb-3 ml-md-3 mr-5">
         <p>
