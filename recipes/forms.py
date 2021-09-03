@@ -17,6 +17,9 @@ class IngredientForm(forms.ModelForm):
         fields = ['position', 'ingredient_name', 'quantity', 'units']
         widgets = {
             'position': forms.HiddenInput(),
+            'ingredient_name': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Ingredient Name'}),
+            'quantity': forms.NumberInput(attrs={'class': 'form-control'}),
+            'units': forms.Select(attrs={'class': 'form-select'}),
         }
 
 class DirectionForm(forms.ModelForm):

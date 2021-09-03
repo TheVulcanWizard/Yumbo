@@ -154,7 +154,7 @@ body {
 }
 
 #ingredients-form-container div[id^='ingredient-'] {
-    margin-bottom: 0.5em;
+    /* margin-bottom: 0.5em; */
 }
 
 input[id$="-DELETE"] {
