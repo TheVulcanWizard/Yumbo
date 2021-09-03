@@ -31,7 +31,10 @@
         </p>
         <ol class="direction-list">
             {% for direction in directions %}
-                <li class="direction-item">{{ direction.text }}</li>
+                <li class="direction-item">
+                    <h3>{{ direction.header }}</h3>
+                    <p>{{ direction.text }}</p>
+                </li>
             {% endfor %}
         </ol>
     </div>

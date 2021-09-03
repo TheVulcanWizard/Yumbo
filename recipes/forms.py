@@ -17,7 +17,7 @@ class IngredientForm(ModelForm):
 class DirectionForm(ModelForm):
     class Meta:
         model = Direction
-        fields = ['position', 'text']
+        fields = ['position', 'header', 'text']
         widgets = {
             'position': HiddenInput(),
         }
