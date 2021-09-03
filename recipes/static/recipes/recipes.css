@@ -149,6 +149,10 @@ body {
     margin-bottom: 0.5em;
 }
 
+.form-group * {
+    margin-bottom: 2px;
+}
+
 #ingredients-form-container div[id^='ingredient-'] {
     margin-bottom: 0.5em;
 }

@@ -1,23 +1,28 @@
-from django.forms import ModelForm, HiddenInput
+from django import forms
 from .models import Recipe, Ingredient, Direction
 
-class RecipeForm(ModelForm):
+class RecipeForm(forms.ModelForm):
     class Meta:
         model = Recipe
         fields = ['recipe_name', 'prep_time', 'image']
+        widgets = {
+            'recipe_name': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Recipe Name'}),
+            'prep_time': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Prep Time'}),
+            'image': forms.FileInput(attrs={'class': 'form-control-file'}),
+        }
 
-class IngredientForm(ModelForm):
+class IngredientForm(forms.ModelForm):
     class Meta:
         model = Ingredient
         fields = ['position', 'ingredient_name', 'quantity', 'units']
         widgets = {
-            'position': HiddenInput(),
+            'position': forms.HiddenInput(),
         }
 
-class DirectionForm(ModelForm):
+class DirectionForm(forms.ModelForm):
     class Meta:
         model = Direction
         fields = ['position', 'header', 'text']
         widgets = {
-            'position': HiddenInput(),
+            'position': forms.HiddenInput(),
         }

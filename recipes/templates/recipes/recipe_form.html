@@ -12,20 +12,28 @@
         <form enctype="multipart/form-data" method="POST">
             {% csrf_token %}
             <h3>Recipe Details</h3>
-            <div class="fieldWrapper">
-                {{ recipe_form.recipe_name.errors }}
-                <label for="id_recipe_name">Recipe Name:</label>
-                {{ recipe_form.recipe_name }}
-            </div>
-            <div class="fieldWrapper">
-                {{ recipe_form.prep_time.errors }}
-                <label for="id_recipe_name">Prep Time:</label>
-                {{ recipe_form.prep_time }}
-            </div>
-            <div class="fieldWrapper">
-                {{ recipe_form.image.errors }}
-                <label for="id_recipe_name">Image:</label>
-                {{ recipe_form.image }}
+            <div class="form-group">
+                <div class="form-group row">
+                    {{ recipe_form.recipe_name.errors }}
+                    <label for="id_recipe_name">Recipe Name:</label>
+                    <div class="col-6">
+                        {{ recipe_form.recipe_name }}
+                    </div>
+                </div>
+                <div class="form-group row">
+                    {{ recipe_form.prep_time.errors }}
+                    <label for="id_recipe_name">Prep Time:</label>
+                    <div class="col-6">
+                        {{ recipe_form.prep_time }}
+                    </div>
+                </div>
+                <div class="form-group row">
+                    {{ recipe_form.image.errors }}
+                    <label for="id_recipe_name">Image:</label>
+                    <div class="col-6">
+                        {{ recipe_form.image }}
+                    </div>
+                </div>
             </div>
             <hr>
             <h3>Ingredients</h3>
