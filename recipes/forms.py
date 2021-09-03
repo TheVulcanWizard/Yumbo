@@ -28,4 +28,6 @@ class DirectionForm(forms.ModelForm):
         fields = ['position', 'header', 'text']
         widgets = {
             'position': forms.HiddenInput(),
+            'header': forms.TextInput(attrs={'class': 'form-control'}),
+            'text': forms.Textarea(attrs={'class': 'form-control'})
         }
