@@ -38,7 +38,7 @@
             <hr>
             <h3>Ingredients</h3>
             {{ ingredient_forms.management_form }}
-            <div id="form-group ingredients-form-container">
+            <div id="ingredients-form-container" class="form-group">
                 {% for ingredient_form in ingredient_forms %}
                 <div id="ingredient-{{ forloop.counter0 }}">
                     <div class="form-group row">
@@ -69,16 +69,28 @@
             <a href="#" id="add-ingredient-button" class="btn custom-btn friendly-btn add-ingredient">Add Ingredient</a>
             <template id="new-ingredient-form-template">
                 <div id="new-ingredient-form">
-                    {{ ingredient_form.id }}
-                    {{ ingredient_form.errors }}
-                    {{ ingredient_forms.empty_form.position }}
-                    <label for="ingredient_form.ingredient_name">Ingredient Name:</label>
-                    {{ ingredient_forms.empty_form.ingredient_name }}
-                    <label for="ingredient_form.quantity">Quantity:</label>
-                    {{ ingredient_forms.empty_form.quantity }} {{ ingredient_forms.empty_form.units }}
-                    <input type="checkbox" name="ingredient_set-__prefix__-DELETE" id="id_ingredient_set-__prefix__-DELETE">
-                    <a href="#" id="delete-ingredient-button-__prefix__" class="btn custom-btn danger-btn">Remove Ingredient</a>
-                    <script type="text/javascript">deleteModelForm("ingredient", "__prefix__")</script>
+                    <div class="form-group row">
+                        {{ ingredient_form.id }}
+                        {{ ingredient_form.errors }}
+                        {{ ingredient_forms.empty_form.position }}
+                        <div class="col-md-4 col-6">
+                            <label for="ingredient_form.ingredient_name">Ingredient Name:</label>
+                            {{ ingredient_forms.empty_form.ingredient_name }}
+                        </div>
+                        <div class="col-md-2 col-3">
+                            <label for="ingredient_form.quantity">Quantity:</label>
+                            {{ ingredient_forms.empty_form.quantity }}
+                        </div>
+                        <div class="col-md-2 col-3">
+                            <label for="ingredient_form.units">Units:</label>
+                            {{ ingredient_forms.empty_form.units }}
+                        </div>
+                        <input type="checkbox" name="ingredient_set-__prefix__-DELETE" id="id_ingredient_set-__prefix__-DELETE">
+                        <div class="col-md-4">
+                            <a href="#" id="delete-ingredient-button-__prefix__" class="btn custom-btn danger-btn mt-md-4">Remove Ingredient</a>
+                        </div>
+                        <script type="text/javascript">deleteModelForm("ingredient", "__prefix__")</script>
+                    </div>
                 </div>
             </template>
             <script type="text/javascript">newModelForm("ingredient")</script>
