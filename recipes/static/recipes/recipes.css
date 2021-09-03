@@ -76,11 +76,33 @@ body {
     font-size: 46pt;
 }
 
+.direction-list {
+    list-style: none;
+    counter-reset: direction-counter;
+}
+
+.direction-item {
+    counter-increment: direction-counter;
+    position: relative;
+}
+
+.direction-item::before {
+    content: counter(direction-counter) ".";
+    color: #87b76f;
+    font-weight: bold;
+    position: absolute;
+    --size: 32px;
+    left: calc(-1 * var(--size)/1.5); top: -5px;;
+    line-height: var(--size);
+    width: var(--size); height: var(--size);
+}
+
 .custom-btn {
     color: white;
     transition: 
         background 0.2s ease-in-out,
-        box-shadow 0.2s ease-in-out;
+        box-shadow 0.2s ease-in-out,
+        color 0.2s ease-in-out;
 }   
 
 .friendly-btn {

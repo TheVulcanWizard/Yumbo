@@ -34,6 +34,7 @@ class Ingredient(models.Model):
 class Direction(models.Model):
     recipe = models.ForeignKey(Recipe, on_delete=models.CASCADE)
     position = models.IntegerField(blank=False)
+    header = models.CharField("Direction Header", max_length=140)
     text = models.TextField("Instructions", blank=True)
 
     def __str__(self):
