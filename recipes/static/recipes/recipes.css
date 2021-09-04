@@ -153,6 +153,10 @@ body {
     margin-bottom: 2px;
 }
 
+.recipe-form label {
+    font-weight: bold;
+}
+
 #ingredients-form-container div[id^='ingredient-'] {
     /* margin-bottom: 0.5em; */
 }

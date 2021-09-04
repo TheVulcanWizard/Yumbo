@@ -9,7 +9,7 @@
             {% endif %}
         </div>
         <hr>
-        <form enctype="multipart/form-data" method="POST">
+        <form enctype="multipart/form-data" method="POST" class="recipe-form">
             {% csrf_token %}
             <h3>Recipe Details</h3>
             <div class="form-group">
@@ -40,7 +40,7 @@
             {{ ingredient_forms.management_form }}
             <div id="ingredients-form-container" class="form-group">
                 {% for ingredient_form in ingredient_forms %}
-                <div id="ingredient-{{ forloop.counter0 }}">
+                <div id="ingredient-{{ forloop.counter0 }}" class="mb-3">
                     <div class="form-group row">
                         {{ ingredient_form.id }}
                         {{ ingredient_form.errors }}
@@ -60,7 +60,7 @@
                         {{ ingredient_form.DELETE }}
                         <div class="col-md-4">
                             <a href="#" id="delete-ingredient-button-{{ forloop.counter0 }}" class="btn custom-btn danger-btn mt-md-4">Remove Ingredient</a>
-                        </div>
+                        </div>             
                         <script type="text/javascript">deleteModelForm("ingredient", "{{ forloop.counter0 }}")</script>
                     </div>
                 </div>
@@ -68,7 +68,7 @@
             </div>
             <a href="#" id="add-ingredient-button" class="btn custom-btn friendly-btn add-ingredient">Add Ingredient</a>
             <template id="new-ingredient-form-template">
-                <div id="new-ingredient-form">
+                <div id="new-ingredient-form" class="mb-3">
                     <div class="form-group row">
                         {{ ingredient_form.id }}
                         {{ ingredient_form.errors }}
