@@ -10,7 +10,7 @@ function newModelForm(model) {
             e.preventDefault();
             var count = Array.from(document.getElementById(`${model}s-form-container`).children).length
             var template = document.querySelector(`#new-${model}-form-template`).content.cloneNode(true)
-            document.querySelector(`div#${model}s-form-container`).append(template);
+            document.querySelector(`ol#${model}s-form-container`).append(template);
             document.getElementById(`new-${model}-form`).setAttribute('id', `${model}-${count}`)
             var toReplace = document.getElementById(`${model}-${count}`).innerHTML;
             toReplace = toReplace.replace(/__prefix__/g, count);

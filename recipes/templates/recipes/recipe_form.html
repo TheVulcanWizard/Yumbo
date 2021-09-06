@@ -96,46 +96,57 @@
             <script type="text/javascript">newModelForm("ingredient")</script>
             <hr>
             <h3>Directions</h3>
-            {{ direction_forms.management_form }}
-            <div id="directions-form-container" class="form-group">
-                {% for direction_form in direction_forms %}
-                <div id="direction-{{ forloop.counter0 }}">
-                    <div class="form-group row">
-                        {{ direction_form.id }}
-                        {{ direction_form.errors }}
-                        {{ direction_form.position }}
-                        <div class="col-md-4">
-                            <label for="direction_form.header">Header:</label>
-                            {{ direction_form.header }}
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <div class="col-md-6">
-                            <label for="direction_form.text">Text:</label>
-                            {{ direction_form.text }}
-                        </div>
-                    </div>
-                        {{ direction_form.DELETE }}
-                        <a href="#" id="delete-direction-button-{{ forloop.counter0 }}" class="btn custom-btn danger-btn">Remove Direction</a>
-                        <script type="text/javascript">deleteModelForm("direction", "{{ forloop.counter0 }}")</script>
+            <div class="row">
+                <div class="col-lg-8">
+                    {{ direction_forms.management_form }}
+                    <ol id="directions-form-container" class="form-group">
+                        {% for direction_form in direction_forms %}
+                        <li id="direction-{{ forloop.counter0 }}" class="mb-4">
+                                    <div class="form-group row">
+                                        {{ direction_form.id }}
+                                        {{ direction_form.errors }}
+                                        {{ direction_form.position }}
+                                        <div class="col-md-8">
+                                            <label for="direction_form.header">Header:</label>
+                                            {{ direction_form.header }}
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <div class="col-md-12">
+                                            <label for="direction_form.text">Text:</label>
+                                            {{ direction_form.text }}
+                                        </div>
+                                    </div>
+                                        {{ direction_form.DELETE }}
+                                        <a href="#" id="delete-direction-button-{{ forloop.counter0 }}" class="btn custom-btn danger-btn">Remove Direction</a>
+                                        <script type="text/javascript">deleteModelForm("direction", "{{ forloop.counter0 }}")</script>
+                        </li>
+                        {% endfor %}
+                    </ol>
+                    <a href="#" id="add-direction-button" class="btn custom-btn friendly-btn add-direction">Add Direction</a>
                 </div>
-                {% endfor %}
             </div>
-            <a href="#" id="add-direction-button" class="btn custom-btn friendly-btn add-direction">Add Direction</a>
+
             <template id="new-direction-form-template">
-                <div id="new-direction-form">
-                    {{ direction_forms.empty_form.id }}
-                    {{ direction_forms.empty_form.position }}
-                    <div class="fieldWrapper">
-                        <label for="direction_form.header">Header:</label>
-                        {{ direction_forms.empty_form.header }}
-                        <label for="direction_form.text">Text:</label>
-                        {{ direction_forms.empty_form.text }}
-                        <input type="checkbox" name="direction_set-__prefix__-DELETE" id="id_direction_set-__prefix__-DELETE">
-                        <a href="#" id="delete-direction-button-__prefix__" class="btn btn-outline-danger">Remove Direction</a>
-                        <script type="text/javascript">deleteModelForm("direction", "__prefix__")</script>
+                <li id="new-direction-form" class="mb-4">
+                    <div class="form-group row">
+                        {{ direction_forms.empty_form.id }}
+                        {{ direction_forms.empty_form.position }}
+                        <div class="col-md-8">
+                            <label for="direction_form.header">Header:</label>
+                            {{ direction_forms.empty_form.header }}
+                        </div>
                     </div>
-                </div>
+                        <div class="form-group row">
+                            <div class="col-md-12">
+                                <label for="direction_form.text">Text:</label>
+                                {{ direction_forms.empty_form.text }}
+                            </div>
+                        </div>
+                        <input type="checkbox" name="direction_set-__prefix__-DELETE" id="id_direction_set-__prefix__-DELETE">
+                        <a href="#" id="delete-direction-button-__prefix__" class="btn custom-btn danger-btn">Remove Direction</a>
+                        <script type="text/javascript">deleteModelForm("direction", "__prefix__")</script>
+                </li>
             </template>
             <script type="text/javascript">newModelForm("direction")</script>
             <hr>
