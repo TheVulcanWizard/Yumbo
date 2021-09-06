@@ -99,9 +99,9 @@
             <div class="row">
                 <div class="col-lg-8">
                     {{ direction_forms.management_form }}
-                    <ol id="directions-form-container" class="form-group">
+                    <ol id="directions-form-container" class="direction-list form-group">
                         {% for direction_form in direction_forms %}
-                        <li id="direction-{{ forloop.counter0 }}" class="mb-4">
+                        <li id="direction-{{ forloop.counter0 }}" class="direction-item mb-4">
                                     <div class="form-group row">
                                         {{ direction_form.id }}
                                         {{ direction_form.errors }}
@@ -128,7 +128,7 @@
             </div>
 
             <template id="new-direction-form-template">
-                <li id="new-direction-form" class="mb-4">
+                <li id="new-direction-form" class="direction-item mb-4">
                     <div class="form-group row">
                         {{ direction_forms.empty_form.id }}
                         {{ direction_forms.empty_form.position }}
