@@ -6,8 +6,8 @@ class RecipeForm(forms.ModelForm):
         model = Recipe
         fields = ['recipe_name', 'prep_time', 'image']
         widgets = {
-            'recipe_name': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Recipe Name'}),
-            'prep_time': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Prep Time'}),
+            'recipe_name': forms.TextInput(attrs={'class': 'form-control friendly-input', 'placeholder': 'Recipe Name'}),
+            'prep_time': forms.TextInput(attrs={'class': 'form-control friendly-input', 'placeholder': 'Prep Time'}),
             'image': forms.FileInput(attrs={'class': 'form-control-file'}),
         }
 
@@ -17,9 +17,9 @@ class IngredientForm(forms.ModelForm):
         fields = ['position', 'ingredient_name', 'quantity', 'units']
         widgets = {
             'position': forms.HiddenInput(),
-            'ingredient_name': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Ingredient Name'}),
-            'quantity': forms.NumberInput(attrs={'class': 'form-control'}),
-            'units': forms.Select(attrs={'class': 'form-select'}),
+            'ingredient_name': forms.TextInput(attrs={'class': 'form-control friendly-input', 'placeholder': 'Ingredient Name'}),
+            'quantity': forms.NumberInput(attrs={'class': 'form-control friendly-input'}),
+            'units': forms.Select(attrs={'class': 'form-select friendly-input'}),
         }
 
 class DirectionForm(forms.ModelForm):
@@ -28,6 +28,6 @@ class DirectionForm(forms.ModelForm):
         fields = ['position', 'header', 'text']
         widgets = {
             'position': forms.HiddenInput(),
-            'header': forms.TextInput(attrs={'class': 'form-control'}),
-            'text': forms.Textarea(attrs={'class': 'form-control', 'rows': 4})
+            'header': forms.TextInput(attrs={'class': 'form-control friendly-input'}),
+            'text': forms.Textarea(attrs={'class': 'form-control friendly-input', 'rows': 4})
         }

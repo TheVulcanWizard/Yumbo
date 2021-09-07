@@ -125,6 +125,10 @@ body {
     box-shadow: 0 0 0 .2rem var(--color-secondary-dark);
 }
 
+.friendly-input:focus {
+    box-shadow: 0 0 0 .2rem var(--color-secondary);
+}
+
 .danger-btn {
     background-color: var(--color-danger);
 }
