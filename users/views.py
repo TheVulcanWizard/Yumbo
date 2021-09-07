@@ -1,7 +1,31 @@
 from django.shortcuts import render, redirect
-from .forms import UserRegisterForm
+from django.contrib.auth.forms import AuthenticationForm
+from django.contrib.auth import authenticate, login as auth_login
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
+from django.urls import reverse
+
+from .forms import UserRegisterForm, UserLoginForm
+
+def login(request):
+    print('custom view')
+    if request.method == 'POST':
+        form = UserLoginForm(request.POST)
+        username = request.POST['username']
+        password = request.POST['password']
+        user = authenticate(username=username, password=password)
+        if user:
+            if user.is_active:
+                auth_login(request, user)
+                return redirect('yumbo-home')
+        else:
+            messages.error(request,'username or password not correct')
+            return redirect(reverse('login'))
+    else:
+        form = UserLoginForm()
+        print('username: ' + str(form.base_fields))
+        return render(request, 'users/login.html', {'form': form})
+
 
 def register(request):
     if request.method == 'POST':

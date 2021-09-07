@@ -1,20 +1,57 @@
-{% extends "recipes/base.html" %}
+{% extends 'recipes/base.html' %}
 {% block content %}
-    <div class="container my-3">
-        <form method="POST">
-            {% csrf_token %}
-            <fieldset class="form-group">
-                <legend class="border-bottom mb-2">Log In</legend>
-                {{ form }}
-            </fieldset>
-            <div class="form-group">
-                <button class="btn custom-btn friendly-btn my-2" type="submit">Log In</button>
-            </div>
-        </form>
-        <div class="border-top pt-2">
-            <small class="text-muted">
-                Need an account? <a class="ml-2" href="{% url 'register' %}">Sign Up!</a>
-            </small>
+    <div class="container" style="min-height: 85vh; display: flex;">
+        <div class="row my-auto">
+                <div class="col-12 mt-3 col-lg-6 mt-lg-0">
+                    <div class="row">
+                        <div class="col-12">
+                            <h1 class="text-center" style="font-size: 62pt;">Welcome to Yumbo!</h1>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-6 col-lg-5">
+                            <img src="../media/cookies.png" alt="" style="width: 90%;">
+                        </div>
+                        <div class="col-6 col-md-5 offset-lg-1">
+                            <p class="mt-2" style="font-size: 2rem;">We make tracking your recipes a piece of cake.</p>
+                        </div>
+                    </div>
+                    
+                </div>
+                <div class="col-12 offset-0 my-5 col-lg-5 my-lg-0">
+                    <div class="card">
+                        <div class="card-header">
+                            <h1>Log In</h1>
+                        </div>
+                        <form method="POST" class="container mt-2">
+                            {% csrf_token %}
+                            <div class="form-group row">
+                                <div class="col-10 offset-1">
+                                    {{ form.username.label_tag }}
+                                    {{ form.username }}
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <div class="col-10 offset-1">
+                                    {{ form.password.label_tag }}
+                                    {{ form.password }}
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <div class="col-10 offset-1">
+                                    <button class="btn custom-btn friendly-btn my-2" style="width: 100%;">Log In</button>
+                                    <div class="border-top py-2">
+                                        <p class="text-muted">
+                                            Need an account?
+                                            <a href="" class="ml-2">Sign up!</a>
+                                        </p>
+                                    </div>
+                                </div>
+                                
+                            </div>
+                        </form>
+                    </div>
+                </div>
         </div>
     </div>
 {% endblock content %}
