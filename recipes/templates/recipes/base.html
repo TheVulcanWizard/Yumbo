@@ -28,26 +28,30 @@
             </button>
             
             <div class="collapse navbar-collapse ml-3 ml-sm-0 mb-0" id="yumboNavbar">
-                <ul class="navbar-nav mr-auto">
+                <!-- <ul class="navbar-nav mr-auto">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="{% url 'recipes' %}">Recipes</a>
+                        <a class="nav-link active" aria-current="page" href="% url 'recipes' %">Recipes</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" href="{% url 'calendar' %}">Calendar</a>
+                        <a class="nav-link active" href="% url 'calendar' %">Calendar</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link active" href="#">Lists</a>
                     </li>
-                </ul>
+                </ul> -->
 
 
                 <!-- We can probably just have one ul tag and have the if statement on the li tag groups -->
                 {% if user.is_authenticated %}
-                    <ul class="navbar-nav mr-3 ml-auto">
-                        <li class="nav-item">
-                            <a class="nav-link active" href="{% url 'profile' %}">Profile</a>
-                        </li>
-                        <li class="nav-item">
+                    <form class="form-inline d-flex my-2 my-lg-0 ml-auto">
+                        <input class="form-control mr-sm-2 friendly-input" type="search" placeholder="Search Recipes..." aria-label="Search">
+                        <button class="btn custom-btn friendly-btn my-2 my-sm-0" type="submit">Search</button>
+                    </form>
+                    <ul class="navbar-nav mr-3">
+                        <!-- <li class="nav-item">
+                            <a class="nav-link active" href="% url 'profile' %">Profile</a>
+                        </li> -->
+                        <li class="nav-item ml-2">
                             <a class="nav-link active" href="{% url 'logout' %}">Log Out</a>
                         </li>
                     </ul>

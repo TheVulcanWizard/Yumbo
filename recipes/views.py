@@ -15,16 +15,16 @@ def home(request):
     }
     return render(request, 'recipes/home.html', context)
 
-def about(request):
-    return render(request, 'recipes/about.html')
+# def about(request):
+#     return render(request, 'recipes/about.html')
 
-@login_required
-def recipes(request):
-    #creating this view in the event that our home dashboard differs from a recipe focused view
-    context = {
-        'recipes': Recipe.objects.filter(user=request.user),
-    }
-    return render(request, 'recipes/home.html', context)
+# @login_required
+# def recipes(request):
+#     #creating this view in the event that our home dashboard differs from a recipe focused view
+#     context = {
+#         'recipes': Recipe.objects.filter(user=request.user),
+#     }
+#     return render(request, 'recipes/home.html', context)
 
 @login_required
 def recipe_detail(request, recipe_id):
