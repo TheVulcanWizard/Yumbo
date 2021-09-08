@@ -1,12 +1,16 @@
 {% extends 'recipes/base.html' %}
 {% block content %}
-    <div class="container rounded my-2" style="background-color: white;">
-        <h1>Are you sure you want to delete {{ recipe.recipe_name}}?</h1>
-        <h4>If you change your mind later, you will have to rebuild it from scratch!</h4>
-        <form method="POST">
-            {% csrf_token %}
-            <button type="submit" class="btn custom-btn danger-btn">Yes, Delete This Recipe</button>
-            <a href="{% url 'recipe-detail' recipe.pk %}" class="btn custom-btn friendly-btn">No, Take Me Back!</a>
-        </form>
+    <div class="container rounded my-3">
+        <div class="row">
+            <div class="col-8 offset-2 container-content rounded px-5 py-3">
+                <h1>Are you sure you want to delete {{ recipe.recipe_name}}?</h1>
+                <h4>If you change your mind later, you will have to rebuild it from scratch!</h4>
+                <form method="POST">
+                    {% csrf_token %}
+                    <button type="submit" class="btn custom-btn danger-btn">Yes, Delete This Recipe</button>
+                    <a href="{% url 'recipe-detail' recipe.pk %}" class="btn custom-btn friendly-btn">No, Take Me Back!</a>
+                </form>
+            </div>
+        </div>
     </div>
 {% endblock content %}
