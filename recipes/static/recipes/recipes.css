@@ -152,6 +152,10 @@ body {
     box-shadow: 0 0 0 .2rem var(--color-danger-dark);
 }
 
+.input-error {
+    border: 2px solid var(--color-danger-dark);
+}
+
 .container {
     overflow: hidden;
 }
@@ -169,6 +173,7 @@ body {
 }
 
 .errorlist {
+    color: var(--color-danger-darker);
     list-style: none;
     padding-left: 0;
 }
