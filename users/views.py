@@ -22,7 +22,6 @@ def login(request):
             return redirect(reverse('login'))
     else:
         form = UserLoginForm()
-        print('username: ' + str(form.base_fields))
         return render(request, 'users/login.html', {'form': form})
 
 
