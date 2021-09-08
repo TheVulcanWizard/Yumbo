@@ -8,7 +8,6 @@ from django.urls import reverse
 from .forms import UserRegisterForm, UserLoginForm
 
 def login(request):
-    print('custom view')
     if request.method == 'POST':
         form = UserLoginForm(request.POST)
         username = request.POST['username']
