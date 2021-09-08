@@ -43,11 +43,11 @@
 
                 <!-- We can probably just have one ul tag and have the if statement on the li tag groups -->
                 {% if user.is_authenticated %}
-                    <form class="form-inline d-flex my-2 my-lg-0 ml-auto">
-                        <input class="form-control mr-sm-2 friendly-input" type="search" placeholder="Search Recipes..." aria-label="Search">
-                        <button class="btn custom-btn friendly-btn my-2 my-sm-0" type="submit">Search</button>
+                    <form class="form-inline d-flex my-2 my-lg-0 ml-sm-auto" style="width: 60%;">
+                        <input class="form-control mr-2 friendly-input" type="search" placeholder="Search Recipes..." aria-label="Search">
+                        <button class="btn custom-btn friendly-btn" type="submit">Search</button>
                     </form>
-                    <ul class="navbar-nav mr-3">
+                    <ul class="navbar-nav mr-3 ml-auto">
                         <!-- <li class="nav-item">
                             <a class="nav-link active" href="% url 'profile' %">Profile</a>
                         </li> -->
