@@ -11,6 +11,7 @@
     --color-danger: hsl(352, 86%, 81%);
     --color-danger-dark: hsl(352, 86%, 73%);
     --color-danger-darker: hsl(352, 86%, 65%);
+    --color-danger-darkest: hsl(352, 86%, 50%);
 }
 
 h1, h2, h3, .navbar-brand {
@@ -32,12 +33,18 @@ body {
     text-decoration-thickness: 2px;
 }
 
+.alert-error {
+    background-color: var(--color-danger);
+    color: var(--color-danger-darkest);
+}
+
 .container-skinny {
     max-width: 720px;
 }
 
 .container-content {
     background-color: var(--color-bg-light);
+    border: 2px solid black;
 }
 
 .recipe-card {
@@ -145,6 +152,10 @@ body {
     box-shadow: 0 0 0 .2rem var(--color-danger-dark);
 }
 
+.input-error {
+    border: 2px solid var(--color-danger-dark);
+}
+
 .container {
     overflow: hidden;
 }
@@ -161,8 +172,23 @@ body {
     margin-bottom: 2px;
 }
 
+.errorlist {
+    color: var(--color-danger-darker);
+    list-style: none;
+    padding-left: 0;
+}
+
 .recipe-form label {
     font-weight: bold;
+}
+
+.messages {
+    list-style: none;
+    padding-left: 0;
+}
+
+.messages li {
+    border-radius: 0;
 }
 
 #ingredients-form-container div[id^='ingredient-'] {
