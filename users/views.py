@@ -18,7 +18,7 @@ def login(request):
                 auth_login(request, user)
                 return redirect('yumbo-home')
         else:
-            messages.error(request,'username or password not correct')
+            messages.error(request,'Your username or password is incorrect')
             return redirect(reverse('login'))
     else:
         form = UserLoginForm()

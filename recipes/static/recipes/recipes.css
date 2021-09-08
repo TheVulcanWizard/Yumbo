@@ -11,6 +11,7 @@
     --color-danger: hsl(352, 86%, 81%);
     --color-danger-dark: hsl(352, 86%, 73%);
     --color-danger-darker: hsl(352, 86%, 65%);
+    --color-danger-darkest: hsl(352, 86%, 50%);
 }
 
 h1, h2, h3, .navbar-brand {
@@ -30,6 +31,11 @@ body {
 .nav-link:hover, .nav-link:focus {
     text-decoration: underline var(--color-secondary);
     text-decoration-thickness: 2px;
+}
+
+.alert-error {
+    background-color: var(--color-danger);
+    color: var(--color-danger-darkest);
 }
 
 .container-skinny {
