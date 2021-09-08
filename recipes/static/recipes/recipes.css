@@ -38,6 +38,7 @@ body {
 
 .container-content {
     background-color: var(--color-bg-light);
+    border: 2px solid black;
 }
 
 .recipe-card {
@@ -159,6 +160,11 @@ body {
 
 .form-group * {
     margin-bottom: 2px;
+}
+
+.errorlist {
+    list-style: none;
+    padding-left: 0;
 }
 
 .recipe-form label {
