@@ -47,6 +47,10 @@ body {
     text-decoration-thickness: 2px;
 }
 
+.search-bar {
+    width: 60%;
+}
+
 .alert-error {
     background-color: var(--color-danger);
     color: var(--color-danger-darkest);
