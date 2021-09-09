@@ -231,6 +231,11 @@ body {
     border-radius: 0;
 }
 
+
+.ingredients {
+    list-style-type: none;
+}
+
 #ingredients-form-container div[id^='ingredient-'] {
     /* margin-bottom: 0.5em; */
 }
