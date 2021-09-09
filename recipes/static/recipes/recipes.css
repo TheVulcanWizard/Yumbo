@@ -74,6 +74,10 @@ body {
     width: 90%;
 }
 
+.recipe-card-link {
+    text-decoration: none;
+}
+
 .recipe-card {
     color: black;
     background-color: var(--color-bg-light);
@@ -89,9 +93,18 @@ body {
     box-shadow: -7px 8px 6px #888888;
 }
 
+#new-recipe-card svg {
+    width: 40%;
+}
+
+#new-recipe-card .card-title {
+    text-align: center;
+    font-size: 1.8em;
+}
+
 .card-img-top {
     width: 100%;
-    height: 15vw;
+    height: 200px;
     object-fit: cover;
 }
 
