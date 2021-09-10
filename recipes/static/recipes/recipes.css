@@ -14,6 +14,8 @@
     --color-danger-darkest: hsl(352, 86%, 50%);
 }
 
+/* Global Fonts */
+
 h1, h2, h3, .navbar-brand {
     font-family: "Cookie";
     line-height: 1;
@@ -24,6 +26,20 @@ body {
     background-color: var(--color-bg);
 }
 
+.announcement {
+    font-size: 48pt;
+}
+
+.announcement-lg {
+    font-size: 62pt;
+}
+
+.callout {
+    font-size: 32px;
+}
+
+/* Navbar */
+
 .navbar {
     background-color: var(--color-main);
 }
@@ -33,9 +49,28 @@ body {
     text-decoration-thickness: 2px;
 }
 
+.messages {
+    list-style: none;
+    padding-left: 0;
+}
+
+.messages li {
+    border-radius: 0;
+}
+
 .alert-error {
     background-color: var(--color-danger);
     color: var(--color-danger-darkest);
+}
+
+.search-bar {
+    width: 60%;
+}
+
+/* Layout */
+
+.container {
+    overflow: hidden;
 }
 
 .container-skinny {
@@ -47,73 +82,27 @@ body {
     border: 2px solid black;
 }
 
-.recipe-card {
-    color: black;
-    background-color: var(--color-bg-light);
-    box-shadow: -5px 5px 5px #888888;
-    border: 1px black solid;
-    top: 0px;
-    transition: 150ms ease-in-out;
+.vertical-center {
+    min-height: 85vh;
+    display: flex;
 }
 
-.recipe-card:hover {
-    position: relative;
-    top: -5px;
-    box-shadow: -7px 8px 6px #888888;
+.fieldWrapper {
+    margin-bottom: 0.5em;
 }
 
-.card-img-top {
-    width: 100%;
-    height: 15vw;
-    object-fit: cover;
+/* Forms & Inputs */
+
+.landing-logo {
+    width: 90%;
 }
 
-.fit-image-profile {
-    width: 100%;
-    object-fit: cover;
-    height: 250px;
-}
-
-.calendar-card {
-    color: black;
-    width: 13vw; 
-    height: 15rem; 
-    flex-shrink: 0; 
-    margin-left: 0.5vw; 
-    margin-right: 0.5vw;
-}
-
-.recipe-header {
-    font-size: 46pt;
-}
-
-.direction-list {
-    list-style: none;
-    counter-reset: direction-counter;
-}
-
-.direction-item {
-    counter-increment: direction-counter;
-    position: relative;
-}
-
-.direction-item::before {
-    content: counter(direction-counter) ".";
-    color: #87b76f;
+.recipe-form label {
     font-weight: bold;
-    position: absolute;
-    --size: 35px;
-    left: calc(-1 * var(--size)); top: -1px;
-    line-height: 1;
-    font-size: 1.5rem;
 }
 
-.direction-item h2 {
-    font-size: 1.5rem;
-}
-
-.direction-item p {
-    font-size: 1.2rem;
+.form-group * {
+    margin-bottom: 2px;
 }
 
 .custom-btn {
@@ -156,47 +145,110 @@ body {
     border: 2px solid var(--color-danger-dark);
 }
 
-.container {
-    overflow: hidden;
-}
-
-.strikethrough:checked + .ingredient-item {
-    text-decoration: line-through;
-}
-
-.fieldWrapper {
-    margin-bottom: 0.5em;
-}
-
-.form-group * {
-    margin-bottom: 2px;
-}
-
 .errorlist {
     color: var(--color-danger-darker);
     list-style: none;
     padding-left: 0;
 }
 
-.recipe-form label {
-    font-weight: bold;
-}
-
-.messages {
-    list-style: none;
-    padding-left: 0;
-}
-
-.messages li {
-    border-radius: 0;
-}
-
-#ingredients-form-container div[id^='ingredient-'] {
-    /* margin-bottom: 0.5em; */
-}
-
 input[id$="-DELETE"] {
     display: none;
+}
+
+/* Recipe Cards */
+
+.recipe-card {
+    color: black;
+    background-color: var(--color-bg-light);
+    box-shadow: -5px 5px 5px #888888;
+    border: 1px black solid;
+    top: 0px;
+    transition: 150ms ease-in-out;
+}
+
+.recipe-card-link {
+    text-decoration: none;
+}
+
+.recipe-card:hover {
+    position: relative;
+    top: -5px;
+    box-shadow: -7px 8px 6px #888888;
+}
+
+.card-img-top {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.fit-image-profile {
+    width: 100%;
+    object-fit: cover;
+    height: 250px;
+}
+
+#new-recipe-card svg {
+    width: 40%;
+}
+
+#new-recipe-card .card-title {
+    text-align: center;
+    font-size: 1.8em;
+}
+
+/* Recipe Details */
+
+.ingredients {
+    list-style-type: none;
+}
+
+.strikethrough:checked + .ingredient-item {
+    text-decoration: line-through;
+}
+
+.recipe-header {
+    font-size: 46pt;
+}
+
+.direction-list {
+    list-style: none;
+    counter-reset: direction-counter;
+}
+
+.direction-item {
+    counter-increment: direction-counter;
+    position: relative;
+}
+
+.direction-item::before {
+    content: counter(direction-counter) ".";
+    color: #87b76f;
+    font-weight: bold;
+    position: absolute;
+    --size: 35px;
+    left: calc(-1 * var(--size)); top: -1px;
+    line-height: 1;
+    font-size: 1.5rem;
+}
+
+.direction-item h2 {
+    font-size: 1.5rem;
+}
+
+.direction-item p {
+    font-size: 1.2rem;
+}
+
+/* Selectors for underdeveloped features */
+
+.calendar-card {
+    color: black;
+    width: 13vw; 
+    height: 15rem; 
+    flex-shrink: 0; 
+    margin-left: 0.5vw; 
+    margin-right: 0.5vw;
 }
 
 .resize-animation-stopper * {
